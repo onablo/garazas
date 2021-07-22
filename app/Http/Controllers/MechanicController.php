@@ -45,7 +45,8 @@ class MechanicController extends Controller
         //DB stulpelis->stulp vardas = formos-> is create.blade.php atributas
         $mechanic->surname = $request->mechanic_surname;
         $mechanic->save();      //i DB
-        return redirect()->route('mechanic.index');     //index kur bus visas sarasas
+        return redirect()->route('mechanic.index')->with('success_message', 'New mechanic has arrived.');   
+         //index kur bus visas sarasas
 
     }
 
@@ -83,7 +84,7 @@ class MechanicController extends Controller
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
         $mechanic->save();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Mechanic was edited.');
         
     }
 
@@ -96,10 +97,10 @@ class MechanicController extends Controller
     public function destroy(Mechanic $mechanic)
     {
         if($mechanic->mechanicHasTruck->count()){
-        return 'Cannot be deleted! Mechanic has an unfinished order!';
+        return redirect()->route('master.index')->with('info_message', 'Cannot be deleted! Mechanic has an unfinished order!');
         }
         $mechanic->delete();
-       return redirect()->route('mechanic.index');
+       return redirect()->route('mechanic.index')->with('success_message', 'The Mechanic came out .');
     }
 }
 

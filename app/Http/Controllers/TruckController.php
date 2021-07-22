@@ -48,7 +48,7 @@ class TruckController extends Controller
         $truck->mechanic_notices = $request->truck_mechanic_notices;
         $truck->mechanic_id = $request->mechanic_id;
         $truck->save();
-        return redirect()->route('truck.index');
+        return redirect()->route('truck.index')->with('success_message', 'New Track order received.');
 
     }
 
@@ -90,7 +90,7 @@ class TruckController extends Controller
         $truck->mechanic_notices = $request->truck_mechanic_notices;
         $truck->mechanic_id = $request->mechanic_id;
         $truck->save();
-        return redirect()->route('truck.index');
+        return redirect()->route('truck.index')->with('success_message', 'Track order was edited.');
     }
 
     /**
@@ -102,7 +102,7 @@ class TruckController extends Controller
     public function destroy(Truck $truck)
     {
         $truck->delete();
-        return redirect()->route('truck.index');
+        return redirect()->route('truck.index')->with('success_message', 'Track order was deleted.');
  
     }
 }

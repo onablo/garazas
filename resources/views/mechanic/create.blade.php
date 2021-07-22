@@ -6,13 +6,23 @@
        <div class="col-md-8">
            <div class="card">
                <div class="card-header">New Mechanic</div>
+
+               <div class="card-body">
                 <form method="POST" action="{{route('mechanic.store')}}">
-                    Name: <input type="text" name="mechanic_name">
-                    Surname: <input type="text" name="mechanic_surname">
+                    <div class="form-group">
+                        <label>Name: </label>
+                        <input type="text" class="form-control" name="mechanic_name">
+                        <small class="form-text text-muted">Masters name.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Surname: </label>
+                        <input type="text" class="form-control" name="mechanic_surname">
+                        <small class="form-text text-muted">Masters surname.</small>
+                    </div>            
                     @csrf
-                    <button type="submit">Add</button>
-                </form>
-               <div class="card-body">                 
+                    <button type="submit" class="btn btn-info">Add</button>
+                </form>                 
                </div>
            </div>
        </div>
