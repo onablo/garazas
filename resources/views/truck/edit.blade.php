@@ -10,22 +10,22 @@
                     <form method="POST" action="{{route('truck.update', [$truck])}}">
                         <div class="form-group">
                             <label>Maker: </label>
-                            <input type="text" class="form-control" name="truck_maker" value="{{$truck->maker}}">
+                            <input type="text" class="form-control" name="truck_maker" value="{{old('truck_maker',$truck->maker)}}">
                             <small class="form-text text-muted">Enter truck maker.</small>
                         </div>
                          <div class="form-group">
                             <label>Plate: </label>
-                            <input type="text" class="form-control" name="truck_plate" value="{{$truck->plate}}">
+                            <input type="text" class="form-control" name="truck_plate" value="{{old('truck_plate',$truck->plate)}}">
                             <small class="form-text text-muted">Enter truck plate.</small>
                         </div>
                         <div class="form-group">
                             <label>Maker year: </label>
-                            <input type="text" class="form-control" name="truck_make_year" value="{{$truck->make_year}}">
+                            <input type="text" class="form-control" name="truck_make_year" value="{{old('truck_make_year', $truck->make_year)}}">
                             <small class="form-text text-muted">Enter truck year maker .</small>
                         </div> 
                         <div class="form-group">
                             <label>Mechanic notices: </label>
-                            <textarea name="truck_mechanic_notices" class="form-control" id="summernote">{{$truck->mechanic_notices}}</textarea>
+                            <textarea name="truck_mechanic_notices" value="{{old('truck_mechanic_notices', $truck->mechanic_notices)}}" class="form-control" id="summernote">{{$truck->mechanic_notices}}</textarea>
                             <small class="form-text text-muted">Mechanic notices.</small>
                         </div>
                         <div class="form-group">               

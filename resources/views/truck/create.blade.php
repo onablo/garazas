@@ -10,23 +10,23 @@
                     <form method="POST" action="{{route('truck.store')}}">
                         <div class="form-group">
                             <label>Maker: </label>
-                            <input type="text" class="form-control" name="truck_maker">
+                            <input type="text" class="form-control" name="truck_maker" value="{{old('truck_maker')}}">
                             <small class="form-text text-muted">Enter truck maker.</small>
                         </div>
                         <div class="form-group">
                             <label>Plate: </label>
-                            <input type="text" class="form-control" name="truck_plate">
+                            <input type="text" class="form-control" name="truck_plate" value="{{old('truck_plate')}}">
                             <small class="form-text text-muted">Enter truck plate.</small>
                         </div>
                         <div class="form-group">
                             <label>Maker year: </label>
-                            <input type="text" class="form-control" name="truck_make_year">
+                            <input type="text" class="form-control" name="truck_make_year" value="{{old('truck_make_year')}}">
                             <small class="form-text text-muted">Enter truck maker-year.</small>
                         </div>
 
                         <div class="form-group">
                             <label>Mechanic notices: </label>
-                            <textarea name="truck_mechanic_notices" class="form-control" id="summernote"></textarea>
+                            <textarea name="truck_mechanic_notices" value="{{old('truck_mechanic_notices')}}" class="form-control" id="summernote" ></textarea>
                             <small class="form-text text-muted">Mechanic notices about truck.</small>
                         </div>
 

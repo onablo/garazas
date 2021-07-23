@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Truck;
 use App\Models\Mechanic;
 use Illuminate\Http\Request;
+use Validator;
 
 class TruckController extends Controller
 {
@@ -41,6 +42,21 @@ class TruckController extends Controller
      */
     public function store(Request $request)
         {
+            $validator = Validator::make($request->all(),
+       [
+           'truck_maker' => ['required', 'min:3', 'max:255'],
+           'truck_plate' => ['required', 'min:4', 'max:20'],
+           'make_year' => ['required', 'integer', 'min:4', 'max:20'],
+           'mechanic_notices' => ['required'],
+           'mechanic_id' => ['required', 'integer', 'min:1'],
+       ]
+       );
+
+       if ($validator->fails()) {
+           $request->flash();
+           return redirect()->back()->withErrors($validator);
+       }
+            
         $truck = new Truck;
         $truck->maker = $request->truck_maker;
         $truck->plate = $request->truck_plate;
@@ -84,6 +100,21 @@ class TruckController extends Controller
      */
     public function update(Request $request, Truck $truck)
     {
+        $validator = Validator::make($request->all(),
+        [
+            'truck_maker' => ['required', 'min:3', 'max:255'],
+            'truck_plate' => ['required', 'min:4', 'max:20'],
+            'make_year' => ['required', 'integer', 'min:4', 'max:20'],
+            'mechanic_notices' => ['required'],
+            'mechanic_id' => ['required', 'integer', 'min:1'],
+        ]
+        );
+ 
+        if ($validator->fails()) {
+            $request->flash();
+            return redirect()->back()->withErrors($validator);
+        }
+
         $truck->maker = $request->truck_maker;
         $truck->plate = $request->truck_plate;
         $truck->make_year = $request->truck_make_year;

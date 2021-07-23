@@ -10,13 +10,13 @@
                     <form method="POST" action="{{route('mechanic.update',$mechanic)}}">
                         <div class="form-group">
                             <label>Name: </label>
-                            <input type="text" class="form-control" name="mechanic_name" value="{{$mechanic->name}}">
+                            <input type="text" class="form-control" name="mechanic_name" value="{{old('mechanic_name',$mechanic->name)}}">
                             <small class="form-text text-muted">Masters name.</small>
                         </div>
     
                         <div class="form-group">
                             <label>Surname: </label>
-                            <input type="text" class="form-control" name="mechanic_surname" value="{{$mechanic->surname}}">
+                            <input type="text" class="form-control" name="mechanic_surname" value="{{old('mechanic_surname',$mechanic->surname)}}">
                             <small class="form-text text-muted">Masters surname.</small>
                         </div>                             
                         @csrf
